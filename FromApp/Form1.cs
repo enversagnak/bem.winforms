@@ -31,6 +31,7 @@ namespace FromApp
 
             var li = new ListViewItem(new[] { "",txtAd.Text, txtSoyad.Text, txtKimlikNo.Text, txtUzmanlik.Text });
 
+
             imageList2.Images.Add(pictureBox1.Image);
 
             li.ImageIndex = imageList2.Images.Count - 1;
@@ -263,5 +264,24 @@ namespace FromApp
         {
             ProgresbarHesapla();
         }
+        private string RandomKey()
+        {
+            int key = 0;
+            Random rnd = new Random();
+            key = rnd.Next(0, 1000);
+            return key.ToString();
+        }
+        private string RandomKey2()
+        {
+            string key = "";
+            Random rnd = new Random();
+            for (int i = 0; i <3 ; i++)
+            {
+                key += ((char)rnd.Next(0, 65000)).ToString();
+            }
+            return key; 
+            
+        }
+   
     }
 }
