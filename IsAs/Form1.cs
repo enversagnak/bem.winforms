@@ -16,13 +16,13 @@ namespace IsAs
         {
             InitializeComponent();
 
-            for (int i = 0; i < 50; i++)
-            {
-                var button = new Button();
-                button.Size = new Size(40, 20);
+            //for (int i = 0; i < 50; i++)
+            //{
+            //    var button = new Button();
+            //    button.Size = new Size(40, 20);
 
-                flowLayoutPanel1.Controls.Add(button);
-            }
+            //    flowLayoutPanel1.Controls.Add(button);
+            //}
         }
 
         private void Form1_Load(object sender, EventArgs e)

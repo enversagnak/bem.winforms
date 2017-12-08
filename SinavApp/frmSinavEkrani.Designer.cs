@@ -32,7 +32,7 @@
             this.lblSinavAdi = new System.Windows.Forms.Label();
             this.lblSinavAciklama = new System.Windows.Forms.Label();
             this.prgCevapOrani = new System.Windows.Forms.ProgressBar();
-            this.pnlSorular = new System.Windows.Forms.Panel();
+            this.pnlSorular = new SinavApp.CustomPanel();
             this.lblKalanZaman = new System.Windows.Forms.Label();
             this.lblAdSoyad = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -52,7 +52,7 @@
             // 
             this.lblSinavAciklama.AutoSize = true;
             this.lblSinavAciklama.Location = new System.Drawing.Point(15, 61);
-            this.lblSinavAciklama.MaximumSize = new System.Drawing.Size(300, 0);
+            this.lblSinavAciklama.MaximumSize = new System.Drawing.Size(350, 0);
             this.lblSinavAciklama.Name = "lblSinavAciklama";
             this.lblSinavAciklama.Size = new System.Drawing.Size(50, 13);
             this.lblSinavAciklama.TabIndex = 1;
@@ -123,9 +123,10 @@
         private System.Windows.Forms.Label lblSinavAdi;
         private System.Windows.Forms.Label lblSinavAciklama;
         private System.Windows.Forms.ProgressBar prgCevapOrani;
-        private System.Windows.Forms.Panel pnlSorular;
+        private CustomPanel pnlSorular;
         private System.Windows.Forms.Label lblKalanZaman;
         public System.Windows.Forms.Label lblAdSoyad;
         private System.Windows.Forms.Timer timer1;
+
     }
 }
