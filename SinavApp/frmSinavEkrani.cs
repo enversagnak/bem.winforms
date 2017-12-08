@@ -61,5 +61,10 @@ namespace SinavApp
             }
             SinavSüresi--;
         }
+
+        private void pnlSorular_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

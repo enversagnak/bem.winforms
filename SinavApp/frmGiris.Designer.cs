@@ -55,10 +55,7 @@
             this.txtAdSoyad.Name = "txtAdSoyad";
             this.txtAdSoyad.Size = new System.Drawing.Size(100, 20);
             this.txtAdSoyad.TabIndex = 3;
-
-#if DEBUG
             this.txtAdSoyad.Text = "Orhan Aygün";
-#endif
             // 
             // btnSinavSec
             // 
@@ -75,11 +72,8 @@
             this.lblSinavDosyaYolu.AutoSize = true;
             this.lblSinavDosyaYolu.Location = new System.Drawing.Point(130, 66);
             this.lblSinavDosyaYolu.Name = "lblSinavDosyaYolu";
-            this.lblSinavDosyaYolu.Size = new System.Drawing.Size(289, 13);
+            this.lblSinavDosyaYolu.Size = new System.Drawing.Size(0, 13);
             this.lblSinavDosyaYolu.TabIndex = 5;
-#if DEBUG
-            this.lblSinavDosyaYolu.Text = "C:\\codebase\\Bem.WinForms\\SinavApp\\Sinavlar\\sinav1.txt";
-#endif
             // 
             // btnDevamEt
             // 

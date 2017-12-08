@@ -67,10 +67,12 @@
             // 
             // pnlSorular
             // 
+            this.pnlSorular.AutoScroll = true;
             this.pnlSorular.Location = new System.Drawing.Point(12, 204);
             this.pnlSorular.Name = "pnlSorular";
             this.pnlSorular.Size = new System.Drawing.Size(561, 241);
             this.pnlSorular.TabIndex = 3;
+            this.pnlSorular.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlSorular_Paint);
             // 
             // lblKalanZaman
             // 
