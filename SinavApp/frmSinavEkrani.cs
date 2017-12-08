@@ -63,6 +63,18 @@ namespace SinavApp
                         Text = $"{soruSayisi}. Soru"
                     };
 
+
+                    int rbY = 30;
+
+                    for (int i = 1; i <= items.Length -2; i++)
+                    {
+                        RadioButton rb = new RadioButton();
+                        rb.Text = items[i];
+                        rb.Location = new Point(10, rbY);
+                        rbY += 20;
+                        groupBox.Controls.Add(rb);
+                    }
+
                     var lbl = new Label
                     {
                         Text = items[0],

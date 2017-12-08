@@ -123,7 +123,7 @@
         private System.Windows.Forms.Label lblSinavAdi;
         private System.Windows.Forms.Label lblSinavAciklama;
         private System.Windows.Forms.ProgressBar prgCevapOrani;
-        private CustomPanel pnlSorular;
+        private System.Windows.Forms.Panel pnlSorular;
         private System.Windows.Forms.Label lblKalanZaman;
         public System.Windows.Forms.Label lblAdSoyad;
         private System.Windows.Forms.Timer timer1;
