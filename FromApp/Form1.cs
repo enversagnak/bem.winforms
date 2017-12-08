@@ -16,26 +16,25 @@ namespace FromApp
         public Form1()
         {
             InitializeComponent();
+
+            Random();
         }
 
         private bool isUpdate;
         private int selectedRowIndex = -1;
 
+
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if(progressBar1.Value < 5)
+            if (progressBar1.Value < 5)
             {
                 MessageBox.Show("Bütün alanları doldurmalısınız.");
                 return;
             }
 
-            var li = new ListViewItem(new[] { "",txtAd.Text, txtSoyad.Text, txtKimlikNo.Text, txtUzmanlik.Text });
-
-
-            imageList2.Images.Add(pictureBox1.Image);
-
-            li.ImageIndex = imageList2.Images.Count - 1;
-
+            var li = new ListViewItem(new[] { "deneme", txtAd.Text, txtSoyad.Text, txtKimlikNo.Text, txtUzmanlik.Text });
+            li.ImageKey = RandomKey();
+            imageList2.Images.Add(li.ImageKey, pictureBox1.Image);
 
             if (isUpdate)
             {
@@ -111,36 +110,6 @@ namespace FromApp
             selectedRowIndex = -1;
         }
 
-        private void lstKisi_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            //if (e.Index < 0) return;
-            ////if the item state is selected them change the back color 
-            //if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-            //    e = new DrawItemEventArgs(e.Graphics,
-            //                              e.Font,
-            //                              e.Bounds,
-            //                              e.Index,
-            //                              e.State ^ DrawItemState.Selected,
-            //                              e.ForeColor,
-            //                              Color.Yellow);//Choose the color
-
-            //// Draw the background of the ListBox control for each item.
-            //e.DrawBackground();
-            //// Draw the current item text
-
-            //var  box = (ListBox)sender;
-
-            //var selectedItem = box.SelectedItem as Kisi;
-
-            //var brush = (!(selectedItem is null) && selectedItem.IsActive) ? Brushes.Black : Brushes.Gray;
-
-            //e.Graphics.DrawString(((ListBox)sender).Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
-            //// If the ListBox has focus, draw a focus rectangle around the selected item.
-            //e.DrawFocusRectangle();
-
-
-            //Debug.WriteLine(e.Index);
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -161,13 +130,19 @@ namespace FromApp
             listView1.SmallImageList = imageList2;
             listView1.LargeImageList = imageList2;
 
+            comboBox1.Items.Add((View)0);
+            comboBox1.Items.Add((View)1);
+            comboBox1.Items.Add((View)2);
+            comboBox1.Items.Add((View)3);
+            comboBox1.Items.Add((View)4);
+
         }
 
         private void lstKisi_SelectedIndexChanged(object sender, EventArgs e)
         {
             var kisi = ((ListBox)sender).SelectedItem as Kisi;
 
-            if(kisi is null)
+            if (kisi is null)
             {
                 return;
             }
@@ -180,7 +155,7 @@ namespace FromApp
             chkAktif.Checked = kisi.IsActive;
 
 
-            if(kisi.Cinsiyet == Cinsiyet.Kadın)
+            if (kisi.Cinsiyet == Cinsiyet.Kadın)
             {
                 rdbCinsiyetKadin.Checked = true;
             }
@@ -188,7 +163,7 @@ namespace FromApp
             {
                 rdbCinsiyetErkek.Checked = true;
             }
-            else if(kisi.Cinsiyet == Cinsiyet.Diger)
+            else if (kisi.Cinsiyet == Cinsiyet.Diger)
             {
                 rbDiger.Checked = true;
             }
@@ -213,7 +188,7 @@ namespace FromApp
             txtKimlikNo.Text = selectedItem.SubItems[3].Text;
             txtUzmanlik.Text = selectedItem.SubItems[4].Text;
 
-            pictureBox1.Image = imageList2.Images[selectedItem.ImageIndex];
+            pictureBox1.Image = imageList2.Images[selectedItem.ImageKey];
 
             isUpdate = true;
             selectedRowIndex = lv.SelectedIndices[0];
@@ -264,24 +239,79 @@ namespace FromApp
         {
             ProgresbarHesapla();
         }
+
+
+        private Random rndGenerator = new Random();
         private string RandomKey()
         {
-            int key = 0;
-            Random rnd = new Random();
-            key = rnd.Next(0, 1000);
-            return key.ToString();
-        }
-        private string RandomKey2()
-        {
             string key = "";
-            Random rnd = new Random();
-            for (int i = 0; i <3 ; i++)
+
+            for (int i = 0; i < 3; i++)
             {
-                key += ((char)rnd.Next(0, 65000)).ToString();
+                key += ((char)rndGenerator.Next(65536)).ToString();
             }
-            return key; 
-            
+
+            Debug.WriteLine($"Key: {key} ");
+            return key.ToString();
+
         }
-   
+
+
+        private void Random()
+        {
+
+            var dictionary = new Dictionary<string, string>();
+            for (int i = 0; i < 100; i++)
+            {
+                string key = RandomKey();
+                dictionary.Add(key, key);
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBox = sender as ComboBox;
+
+            if(comboBox is null)
+            {
+                return;
+            }
+
+            //switch (comboBox.SelectedItem.ToString())
+            //{
+            //    case "Large Icon": listView1.View = View.LargeIcon;break;
+            //    case "Small Icon": listView1.View = View.SmallIcon;break;
+            //    case "Details": listView1.View = View.Details;break;
+            //    case "List": listView1.View = View.List;break;
+            //    case "Tiles": listView1.View = View.Tile;break;
+            //    default:
+            //        break;
+            //}
+
+            listView1.View = (View)comboBox.SelectedItem;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Image = null;
+            ProgresbarHesapla();
+        }
+
+
+
+        private void yeniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Yeni");
+        }
+
+        private void çıjToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_Opened(object sender, EventArgs e)
+        {
+            toolStripMenuItem2.Enabled = !(pictureBox1.Image is null);
+        }
     }
 }

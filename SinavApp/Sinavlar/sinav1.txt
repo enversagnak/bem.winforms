@@ -1,0 +1,6 @@
+﻿Coğrafya
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras augue nibh, laoreet in facilisis vel, sollicitudin in purus. Fusce ornare enim et libero accumsan imperdiet. Fusce sit amet porta nulla, nec vehicula neque. Vivamus eu ante ligula. Maecenas sed justo vitae erat molestie tristique sed ut mauris. 
+3600
+Türkiye'nin başkenti neresidir? | İzmir | Yozgat | Ankara | Adana | İstanbul | 2
+Aşağıdakilerden hangisi Türkiye'nin coğrafi bölgelerinden değildir | Marmara | Karadeniz | Doğu Anadolu | Trakya | Akdeniz | 3
+Aşağıdakilerden hangisi Türkiye'nin coğrafi bölgelerinden değildir | Marmara | Karadeniz | Doğu Anadolu | Trakya | Akdeniz | 3
